@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .booking-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-column {
+            width: 40%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-column {
+            width: 55%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .btn-book {
+            width: 100%;
+            background-color: #303030;
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .btn-book:hover {
+            background-color: #444;
+        }
+
+        .timeslot-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .timeslot {
+            width: 30%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeslot:hover {
+            border-color: #000;
+        }
+
+        .timeslot.selected {
+            background-color: #007bff;
+            color: white;
+            border-color: #0056b3;
+        }
+
+        .timeslot span {
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FIX-IT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="location.html">Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+
+                </ul>
+                <button class="nav-btn ms-auto">
+                    <a style="color:white;" href="book.html">Book</a>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="booking-container">
+            <div class="left-column">
+                <h3>Select Date</h3>
+                <div class="calendar">
+                    <input type="date" class="form-control" id="datePicker" onchange="setFormData()"/>
+                </div>
+
+                <h3>Select Location</h3>
+                <select class="form-select mb-3" id="locationPicker" onchange="setFormData()">
+                    <option value="Hull">Hull</option>
+                    <option value="Byward">Byward Market</option>
+                    <option value="Golden">Golden Triangle</option>
+                </select>
+
+                <h3>Select Service</h3>
+                <select class="form-select mb-3" id="servicePicker" onchange="setFormData()">
+                    <option value="Assembly">Bike Assembly</option>
+                    <option value="Tire">Tire Repair</option>
+                    <option value="Chain">Chain Replacement</option>
+                    <option value="Tuning">Tuning</option>
+                </select>
+
+                <h3>Select Time Slot</h3>
+                <div class="timeslot-container">
+                    <div class="timeslot" value="9:00 AM" onclick="selectTimeSlot(this)">
+                        <span>9:00 AM - 12:00 PM</span>
+                    </div>
+                    <div class="timeslot" value="1:00 PM" onclick="selectTimeSlot(this)">
+                        <span>1:00 PM - 4:00 PM</span>
+                    </div>
+                    <div class="timeslot" value="5:00 PM" onclick="selectTimeSlot(this)">
+                        <span>5:00 PM - 8:00 PM</span>
+                    </div>
+                </div>
+
+                <h3>Select Payment Method</h3>
+                <div class="timeslot-container">
+                    <div class="timeslot selectPayement" value="Google Pay" onclick="selectPayement(this)">
+                        <span>Google Pay</span>
+                    </div>
+                    <div class="timeslot selectPayement" value="Apple Pay" onclick="selectPayement(this)">
+                        <span>Apple Pay</span>
+                    </div>
+                    <div class="timeslot selectPayement" value="Paypal" onclick="selectPayement(this)">
+                        <span>Paypal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <h3>Fill Your Details</h3>
+                <form action="confirmation.html" method="GET">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="text" id="phone" name="phone" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="4"></textarea>
+                    </div>
+
+                    <div class="d-none">
+                        <label for="date" class="form-label">Booking Date</label>
+                        <input type="date" id="bookingDate" name="bookingDate" required readonly>
+                    </div>
+
+                    <div class="d-none">
+                        <label for="location" class="form-label">Location</label>
+                        <select id="location" name="location" required readonly>
+                            <option value="Hull">Hull</option>
+                            <option value="Byward">Byward Market</option>
+                            <option value="Golden">Golden Triangle</option>
+                        </select>
+                    </div>
+
+                    <div class="d-none">
+                        <label for="service" class="form-label">Service</label>
+                        <select id="service" name="service" required readonly>
+                            <option value="Assembly">Bike Assembly</option>
+                            <option value="Tire">Tire Repair</option>
+                            <option value="Chain">Chain Replacement</option>
+                            <option value="Tuning">Tuning</option>
+                        </select>
+                    </div>
+
+                    <div class="d-none">
+                        <label for="timeSlot" class="form-label">Time Slot</label>
+                        <input type="text" id="timeSlot" name="timeSlot" required readonly>
+                    </div>
+
+                    <button type="submit" class="btn-book">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let timeslot;
+        
+        document.getElementById('bookingDate').value = "2025-02-16";
+        
+        function setFormData() {
+            var date = document.getElementById('datePicker').value;
+            document.getElementById('bookingDate').value = date;
+
+            var location = document.getElementById('locationPicker').value;
+            document.getElementById('location').value = location;
+
+            var service = document.getElementById('servicePicker').value;
+            document.getElementById('service').value = service;
+
+            document.getElementById('timeSlot').value = timeslot;
+        }
+
+        function selectTimeSlot(slot) {
+            const selectedSlot = document.querySelector('.timeslot.selected');
+            if (selectedSlot) {
+                selectedSlot.classList.remove('selected');
+            }
+            slot.classList.add('selected');
+
+            timeslot = slot.getAttribute('value');
+            setFormData();
+        }
+
+        function selectPayement(slot) {
+            const selectedSlot = document.querySelector('.selected.selectPayement');
+            if (selectedSlot) {
+                selectedSlot.classList.remove('selected');
+            }
+            slot.classList.add('selected');
+        }
+
+    </script>
+</body>
+</html>

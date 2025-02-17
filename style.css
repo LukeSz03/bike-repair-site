@@ -1,0 +1,45 @@
+.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: white !important;
+}
+
+.navbar-brand {
+    color: #3D3D3D !important;
+}
+
+.navbar-nav .nav-link {
+    font-weight: regular;
+    font-family: 'Source Sans 3', sans-serif;
+    color: #3D3D3D !important;
+    font-size: 30px;
+}
+
+.navbar {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.navbar-brand {
+    display: inline-block;
+    margin-right: 1rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 50px;
+    font-weight: bolder;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.nav-btn {
+    color: white;
+    background-color: #303030;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 8px 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}

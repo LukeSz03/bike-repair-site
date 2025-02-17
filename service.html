@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoomable Image with Cursor Position</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+        b, strong {
+            font-weight: bolder;
+            font-family: 'Inter', sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+            color: #6B6B6B;
+            margin-bottom: -10px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 2px;
+            font-weight: 500;
+            color: #A4A4A4;
+        }
+
+        button.status-btn {
+            border-width: 0px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .service {
+            width: 200px;
+            height: 300px;
+            background-color: black;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            color: #333;
+            font-weight: 500;
+            padding: 5px;
+            padding-bottom: 0px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #666;
+            padding-left: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 80px;
+            font-weight: 600;
+            font-family: 'Source Sans 3';
+            color: #3d3d3d;
+            padding: 20px;
+        }
+
+        .product {
+            width: 225px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .product img {
+            border-radius: 10px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid"> <!-- Changed from container to container-fluid -->
+            <a class="navbar-brand" href="#">FIX-IT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold"style="cursor: pointer;"  href="service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="location.html">Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+
+                </ul>
+                <button class="nav-btn ms-auto">
+                    <a style="color:white;text-decoration: none;" href="book.html">Book</a>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <h1>Services</h1>
+
+        
+    <div class="product-container">
+        <div class="product">
+            <img src="assembling_bike.webp" alt="Assembling Bike" width="225" height="150">
+            <h3 class="product-title">Bike Assembly</h3>
+            <p class="product-description" style="color:green;">$90</p>
+            <p class="product-description">Get your bike fully assembled and ready to ride with all parts properly installed.</p>
+        </div>
+
+        <div class="product">
+            <img src="flat_tire.avif" alt="Flat Tire" width="225" height="150">
+            <h3 class="product-title">Tire Repair</h3>
+            <p class="product-description" style="color:green;">$25</p>
+            <p class="product-description">We repair flat tires quickly by patching or replacing damaged tires.</p>
+        </div>
+
+        <div class="product">
+            <img src="bike_chain.jpeg" alt="Chain Replacement" width="225" height="150">
+            <h3 class="product-title">Chain Replacement</h3>
+            <p class="product-description" style="color:green;">$25</p>
+            <p class="product-description">Replace your bike’s worn-out chain for smoother and more efficient riding.</p>
+        </div>
+
+        <div class="product">
+            <img src="tune.webp" alt="Tune Up" width="225" height="150" style="object-fit: cover;">
+            <h3 class="product-title">Tune Up</h3>
+            <p class="product-description" style="color:green;">$100</p>
+            <p class="product-description">A full check-up and adjustment of your bike’s gears, brakes, and tires for better performance.</p>
+        </div>
+
+        <div class="product">
+            <img src="flat_tire.avif" alt="Flat Tire" width="225" height="150">
+            <h3 class="product-title">Tire Repair</h3>
+            <p class="product-description" style="color:green;">$25</p>
+            <p class="product-description">Quick tire patching or replacement for a hassle-free ride.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

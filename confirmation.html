@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoomable Image with Cursor Position</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        b, strong {
+            font-weight: bolder;
+            font-family: 'Inter', sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+            color: #6B6B6B;
+            margin-bottom: -10px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 2px;
+            font-weight: 500;
+            color: #A4A4A4;
+        }
+
+        button.status-btn {
+            border-width: 0px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+        }
+        .container {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FIX-IT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="location.html">Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+
+                </ul>
+                <button class="nav-btn ms-auto">
+                    <a style="color:white;text-decoration: none;" href="book.html">Book</a>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Booking Confirmation</h2>
+        <h5>We've sent the appointment details to your email!</h5>
+
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Phone:</strong> <span id="phone"></span></p>
+        <p><strong>Message:</strong> <span id="message"></span></p>
+        <p><strong>Booking Date:</strong> <span id="bookingDate"></span></p>
+        <p><strong>Location:</strong> <span id="location"></span></p>
+        <p><strong>Service:</strong> <span id="service"></span></p>
+        <p><strong>Time Slot:</strong> <span id="timeSlot"></span></p>
+    </div>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get("name"),
+                email: params.get("email"),
+                phone: params.get("phone"),
+                message: params.get("message"),
+                bookingDate: params.get("bookingDate"),
+                location: params.get("location"),
+                service: params.get("service"),
+                timeSlot: params.get("timeSlot")
+            };
+        }
+
+        function populateFormData() {
+            const formData = getQueryParams();
+            for (const key in formData) {
+                if (formData[key]) {
+                    document.getElementById(key).textContent = decodeURIComponent(formData[key]);
+                }
+            }
+        }
+
+        window.onload = populateFormData;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
